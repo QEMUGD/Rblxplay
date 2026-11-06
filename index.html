@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1b5790">
+<title>ROBLOX - Games</title>
+<style>
+:root{--blue:#1b5790;--blue2:#2d78b7;--line:#c7c7c7;--text:#333;--muted:#777;--green:#65a943}
+*{box-sizing:border-box}body{margin:0;background:#e7e7e7;color:var(--text);font:13px Arial,Helvetica,sans-serif}
+a{color:#1769a6;text-decoration:none}a:hover{text-decoration:underline}
+.top{background:linear-gradient(#246da8,#174e83);border-bottom:1px solid #103e69;color:#fff;box-shadow:0 1px 3px #999}
+.topinner{max-width:1120px;margin:auto;min-height:58px;padding:8px 14px;display:flex;align-items:center;gap:22px}
+.brand{font-size:29px;font-weight:900;letter-spacing:-2px;color:white;text-shadow:1px 2px #123c65;white-space:nowrap}
+.brand span{color:#fff}.topsearch{display:flex;max-width:420px;flex:1}.topsearch input{min-width:0;flex:1;padding:8px;border:1px solid #123f68;border-right:0}.topsearch button{background:#eee;color:#333;border:1px solid #123f68;padding:0 13px;font-weight:bold}
+.account{margin-left:auto;color:#eaf4ff;white-space:nowrap}
+.nav{background:#f5f5f5;border-bottom:1px solid #bcbcbc;box-shadow:0 1px 2px #ddd}
+.navinner{max-width:1120px;margin:auto;display:flex;gap:0;padding:0 10px}
+.nav a{display:block;padding:12px 18px;color:#245b87;font-weight:bold;border-left:1px solid transparent;border-right:1px solid transparent}
+.nav a:hover{background:#fff;text-decoration:none;border-color:#ddd}
+.wrap{max-width:1120px;margin:20px auto;padding:0 12px}
+.panel{background:#fff;border:1px solid #c5c5c5;box-shadow:0 1px 2px #d4d4d4;margin-bottom:16px;padding:15px}
+h1{font-size:23px;margin:0 0 14px;color:#444}h2{font-size:19px;margin:0 0 13px;color:#444}
+.searchrow{display:flex;gap:8px}.searchrow input{flex:1;min-width:0;padding:11px;border:1px solid #aaa;font-size:14px}
+.btn{border:1px solid #14507f;background:linear-gradient(#3988c7,#1d639e);color:#fff;padding:9px 17px;font-weight:bold;cursor:pointer;text-shadow:0 -1px #174a76}
+.btn:hover{filter:brightness(1.07)}.btn.gray{background:linear-gradient(#fafafa,#e5e5e5);color:#333;border-color:#aaa;text-shadow:none}
+.toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:13px;padding-top:12px;border-top:1px solid #eee}
+.toolbar label{display:flex;align-items:center;gap:6px}.toolbar select{padding:7px;border:1px solid #aaa;background:#fff}
+.toggle{font-weight:bold;color:#555}.toggle input{vertical-align:middle}
+#status{color:#777;margin-top:12px;min-height:16px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:13px}
+.game{border:1px solid #ccc;background:#f8f8f8;padding:7px;cursor:pointer;min-width:0}.game:hover{border-color:#6b9ec6;background:#f0f7fc}
+.game img{display:block;width:100%;aspect-ratio:1.45;object-fit:cover;background:#ddd;border:1px solid #ddd}
+.gname{display:block;font-weight:bold;color:#1769a6;margin-top:7px;line-height:1.3;overflow-wrap:anywhere}
+.gmeta{font-size:11px;color:#777;margin-top:5px;display:flex;justify-content:space-between;gap:5px}
+.flag{display:inline-block;background:#eee;color:#8a3333;border:1px solid #d6b4b4;padding:2px 5px;font-size:10px;margin-top:5px}
+.pager{display:flex;justify-content:center;gap:8px;margin-top:16px}
+#details{display:none}.back{margin-bottom:15px}
+.hero{display:flex;gap:20px;flex-wrap:wrap}.heroimg{width:min(360px,100%);aspect-ratio:1.45;object-fit:cover;background:#ddd;border:1px solid #bbb}
+.heroinfo{flex:1;min-width:220px}.heroinfo h1{font-size:25px;margin:3px 0 8px}
+.play{background:linear-gradient(#83c75c,#559a35);border:1px solid #3e7829;border-radius:3px;color:#fff;font-size:22px;padding:13px 48px;text-shadow:0 -1px #42782d;margin-top:12px}
+.tabs{border-bottom:1px solid #bbb;margin:20px 0 15px;display:flex;gap:24px}.tabs button{border:0;background:none;color:#1769a6;font-weight:bold;padding:0 0 9px;cursor:pointer}
+.description{line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere}
+.empty{padding:25px;text-align:center;color:#777;grid-column:1/-1}
+footer{max-width:1120px;margin:28px auto;padding:18px 12px;color:#888;border-top:1px solid #ccc;font-size:11px}
+@media(max-width:600px){.topinner{gap:10px;flex-wrap:wrap}.brand{font-size:25px}.account{display:none}.navinner{overflow:auto}.nav a{padding:11px 12px;white-space:nowrap}.searchrow{flex-wrap:wrap}.searchrow .btn{width:100%}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.heroimg{width:100%}.play{width:100%}}
+</style>
+</head>
+<body>
+<header class="top"><div class="topinner">
+<a class="brand" href="#" onclick="showHome();return false">ROBLOX</a>
+<form class="topsearch" id="topSearch"><input id="topQuery" placeholder="Search Games" aria-label="Search games"><button>Search</button></form>
+<div class="account">Games&nbsp; • &nbsp;Catalog&nbsp; • &nbsp;Create</div>
+</div></header>
+<nav class="nav"><div class="navinner">
+<a href="#" onclick="showHome();return false">Games</a><a href="#" onclick="return false">Catalog</a><a href="#" onclick="return false">Develop</a><a href="#" onclick="return false">Forum</a>
+</div></nav>
+<div class="wrap">
+<main id="home">
+<section class="panel">
+<h1>Games</h1>
+<form class="searchrow" id="mainSearch"><input id="query" placeholder="Search for games..." autocomplete="off"><button class="btn">Search</button></form>
+<div class="toolbar">
+<label>Sort by <select id="sort"><option value="relevance">Relevance</option><option value="oldest">Oldest first</option><option value="alphabetical">Alphabetical (A–Z)</option><option value="players">Most players</option><option value="visits">Most visits</option></select></label>
+<label class="toggle"><input type="checkbox" id="unavailable"> Show unavailable / unplayable (when Roblox identifies them)</label>
+<button class="btn gray" id="addPlace" type="button">Add Place ID</button>
+</div>
+<div id="status">Search Roblox experiences to get started.</div>
+</section>
+<section class="panel"><div class="grid" id="games"><div class="empty">Search for a game above.</div></div><div class="pager"><button class="btn gray" id="more" type="button" hidden>Load more</button></div></section>
+</main>
+<main id="details" class="panel">
+<button class="btn gray back" onclick="showHome()">&#8592; Back to Games</button>
+<div class="hero"><img class="heroimg" id="detailImage" alt="Game thumbnail">
+<div class="heroinfo"><h1 id="detailName"></h1><div id="detailCreator" class="gmeta"></div><p id="detailStats"></p><button class="play" id="playButton">&#9654; PLAY</button><p id="availabilityLabel"></p></div></div>
+<div class="tabs"><button>ABOUT</button><button onclick="document.getElementById('detailDescription').scrollIntoView({behavior:'smooth'})">DESCRIPTION</button></div>
+<h2>Description</h2><div class="description" id="detailDescription"></div>
+</main>
+</div>
+<footer>ROBLOX 2016-inspired fan-made game launcher. Not affiliated with Roblox Corporation.</footer>
+<script>
+const API='https://apis.roblox.com/search-api/omni-search';
+const $=id=>document.getElementById(id);
+let results=[],selected=null,nextCursor=null,lastQuery='',searchGeneration=0;
+const number=v=>Number.isFinite(Number(v))?Number(v):0;
+function setStatus(s){$('status').textContent=s}
+function uuid(){return crypto.randomUUID?crypto.randomUUID():'rblx-'+Date.now()+'-'+Math.random().toString(16).slice(2)}
+async function getJSON(url){const r=await fetch(url);if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}
+function normalize(raw){
+ const target=raw.universeId||raw.id||raw.targetId||null;
+ const place=raw.rootPlaceId||raw.placeId||raw.rootPlace?.id||raw.targetId||null;
+ const thumb=raw.thumbnail?.url||raw.thumbnailUrl||raw.imageUrl||'';
+ const statusText=String(raw.moderationStatus||raw.status||'').toLowerCase();
+ const unavailable=raw.isPlayable===false||raw.isPrivate===true||raw.isBanned===true||/banned|moderated|private|unavailable|inactive/.test(statusText);
+ return {name:raw.name||raw.title||'Untitled experience',placeId:place,universeId:raw.universeId||target,thumbnail:thumb,playing:number(raw.playerCount??raw.playing),visits:number(raw.visitCount??raw.visits),created:raw.created||null,description:raw.description||'',creator:raw.creatorName||raw.creator?.name||'Unknown creator',unavailable,raw};
+}
+async function searchGames(query= $('query').value.trim(),append=false){
+ if(!query)return setStatus('Type a game name first.');
+ const generation=++searchGeneration;
+ if(!append){results=[];nextCursor=null;lastQuery=query;$('games').innerHTML='';$('more').hidden=true;setStatus('Searching Roblox...')}
+ const params=new URLSearchParams({searchQuery:query,pageType:'games',sessionId:uuid()});
+ if(append&&nextCursor)params.set('pageToken',nextCursor);
+ const target=API+'?'+params.toString();
+ const urls=[target,'https://api.allorigins.win/raw?url='+encodeURIComponent(target)];
+ let data=null,errors=[];
+ for(const url of urls){try{data=await getJSON(url);break}catch(e){errors.push(e.message)}}
+ if(generation!==searchGeneration)return;
+ if(!data){setStatus('Search could not reach Roblox. Browser CORS/network blocking may be the cause. Try again, or add a Place ID.');return}
+ const sections=Array.isArray(data.searchResults)?data.searchResults:[];
+ const found=sections.flatMap(s=>Array.isArray(s.contents)?s.contents:[]).map(normalize).filter(g=>g.placeId);
+ const seen=new Set(results.map(g=>String(g.placeId)));
+ for(const game of found)if(!seen.has(String(game.placeId))){results.push(game);seen.add(String(game.placeId))}
+ nextCursor=data.nextPageToken||data.nextPageCursor||data.pagination?.nextPageToken||null;
+ await enrichMetadata(found);
+ if(generation!==searchGeneration)return;
+ render();
+ setStatus(results.length+' experiences loaded'+(nextCursor?' — more results available.':'.')+(found.length?'':' No matching public results returned.'));
+ $('more').hidden=!nextCursor;
+}
+async function enrichMetadata(games){
+ const ids=[...new Set(games.map(g=>g.universeId).filter(Boolean).map(String))];
+ for(let i=0;i<ids.length;i+=50){
+  try{
+   const data=await getJSON('https://games.roblox.com/v1/games?universeIds='+ids.slice(i,i+50).map(encodeURIComponent).join('%2C'));
+   for(const info of data.data||[]){
+    const game=games.find(g=>String(g.universeId)===String(info.id));
+    if(!game)continue;
+    game.created=info.created||game.created;game.playing=number(info.playing??game.playing);game.visits=number(info.visits??game.visits);
+    game.description=info.description||game.description;game.name=info.name||game.name;game.creator=info.creator?.name||game.creator;
+    if(info.isPlayable===false)game.unavailable=true;
+   }
+  }catch(e){console.warn('Roblox metadata unavailable',e)}
+ }
+}
+function sortList(list,type){
+ const copy=[...list],byName=(a,b)=>a.name.localeCompare(b.name,undefined,{sensitivity:'base',numeric:true});
+ if(type==='alphabetical')return copy.sort(byName);
+ if(type==='oldest')return copy.sort((a,b)=>{const da=Date.parse(a.created||''),db=Date.parse(b.created||'');const aa=Number.isFinite(da)?da:Infinity,bb=Number.isFinite(db)?db:Infinity;return aa-bb||byName(a,b)});
+ if(type==='players')return copy.sort((a,b)=>b.playing-a.playing||byName(a,b));
+ if(type==='visits')return copy.sort((a,b)=>b.visits-a.visits||byName(a,b));
+ return copy;
+}
+function render(){
+ const showUnavailable=$('unavailable').checked;
+ const list=sortList(results.filter(g=>showUnavailable||!g.unavailable),$('sort').value);
+ const grid=$('games');grid.replaceChildren();
+ if(!list.length){const d=document.createElement('div');d.className='empty';d.textContent=results.length?'No games match this filter.':'No games to display.';grid.append(d);return}
+ for(const game of list){
+  const card=document.createElement('article');card.className='game';card.tabIndex=0;
+  const img=document.createElement('img');img.loading='lazy';img.alt='';img.src=game.thumbnail||'https://placehold.co/420x290/e0e0e0/777?text=ROBLOX';
+  const name=document.createElement('a');name.className='gname';name.href='#';name.textContent=game.name;name.onclick=e=>{e.preventDefault();openGame(game)};
+  const meta=document.createElement('div');meta.className='gmeta';const players=document.createElement('span');players.textContent=game.playing.toLocaleString()+' playing';const visits=document.createElement('span');visits.textContent=game.visits.toLocaleString()+' visits';meta.append(players,visits);
+  card.append(img,name,meta);
+  if(game.unavailable){const flag=document.createElement('span');flag.className='flag';flag.textContent='UNAVAILABLE';card.append(flag)}
+  card.onclick=()=>openGame(game);card.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openGame(game)}};
+  grid.append(card);
+ }
+}
+function openGame(game){
+ selected=game;$('home').style.display='none';$('details').style.display='block';
+ $('detailName').textContent=game.name;$('detailImage').src=game.thumbnail||'https://placehold.co/720x500/e0e0e0/777?text=ROBLOX';
+ $('detailCreator').textContent='By '+game.creator;
+ $('detailStats').textContent=game.playing.toLocaleString()+' playing  |  '+game.visits.toLocaleString()+' visits';
+ $('detailDescription').textContent=game.description||'No description available.';
+ $('availabilityLabel').textContent=game.unavailable?'Roblox marked this experience as unavailable. Playing may not work.':'';
+ window.scrollTo(0,0);
+}
+function showHome(){$('details').style.display='none';$('home').style.display='block';window.scrollTo(0,0)}
+function play(){if(!selected?.placeId)return alert('This experience does not have a known Place ID.');location.href='https://play.roblox.com/games/start?placeId='+encodeURIComponent(selected.placeId)}
+function addPlace(){
+ const value=prompt('Paste a Roblox game URL or enter its Place ID:');if(!value)return;
+ const m=value.match(/(?:games\/)?(\d{5,})/);if(!m)return alert('Could not find a Place ID.');
+ const id=m[1],game={name:'Experience '+id,placeId:id,universeId:null,thumbnail:'',playing:0,visits:0,created:null,description:'Added manually by Place ID.',creator:'Unknown creator',unavailable:false};
+ results.push(game);render();openGame(game);setStatus('Added Place ID '+id+'.');
+}
+$('mainSearch').addEventListener('submit',e=>{e.preventDefault();$('topQuery').value=$('query').value;searchGames()});
+$('topSearch').addEventListener('submit',e=>{e.preventDefault();$('query').value=$('topQuery').value;searchGames()});
+$('sort').addEventListener('change',render);$('unavailable').addEventListener('change',render);
+$('more').addEventListener('click',()=>searchGames(lastQuery,true));$('addPlace').addEventListener('click',addPlace);
+$('playButton').addEventListener('click',play);
+</script>
+</body>
+</html>
